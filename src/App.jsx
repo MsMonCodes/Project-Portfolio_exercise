@@ -34,18 +34,19 @@ import React, { useState } from 'react';
 import './App.css';
 import { portfolioItems } from './utils/data';
 import { useState } from 'react';
+import { PortfolioItemPage } from './pages/PortfolioItemPage';
+import { PortfolioPage } from './pages/PortfolioPage';
 
 export const App = () => {
-  console.log(portfolioItems); // Check console to see how portfolioItems look like. You can delete this after.
-  return <div className="App"></div>;
-};
-
-export const selectedItem = () => {
-  const [portfolioItems, setPortfolioItems] = useState(0);
+  console.log(portfolioItems);
+  // // Check console to see how portfolioItems look like. You can delete this after.
+  const [selectedItem, setSelectedItem] = useState(portfolioItems[0]);
+  // We will make this state more dynamic in the 2nd part of the exercise at the end of the module.
 
   return (
-    <>
-      <p>Selected protfolio: {portfolioItems}</p>
-    </>
+    <div className='App'>
+      {/* <p>Selected protfolio: {portfolioItems}</p> */}
+      {selectedItem ? (< PortfolioItemPage item={selectedItem} />) : <PortfolioPage />}
+    </div>
   );
 };
